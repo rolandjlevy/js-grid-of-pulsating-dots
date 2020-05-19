@@ -1,0 +1,77 @@
+:root {
+  --size: 30;
+}
+
+body {
+  box-sizing: border-box;
+  background: #eee;
+  font-family: 'Raleway', sans-serif;
+}
+
+h2, h3 {
+  margin-top: 0;
+  color:#ff738b;
+}
+
+.wrapper {
+  width: fit-content;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 15px 15px -15px #00000033;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(var(--size) * 10px);
+  height: calc(var(--size) * 10px);
+  /* border: 2px solid black; */
+}
+
+.container > .dot {
+  /* flex: 0 1 auto; */
+}
+
+.dot {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  background: #ffc0cb;
+  width: calc(var(--size) * 1px);
+  height: calc(var(--size) * 1px);
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  transform: scale(1);
+  transition: all 1s ease;
+  z-index: 1;
+}
+
+.dot.grow {
+  animation-name: grow;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+    background: #ff889c;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.dot:hover {
+  transform: scale(1.2);
+  background: #ff889c;
+  transition: all 0.1s ease;
+  z-index: 100;
+}
